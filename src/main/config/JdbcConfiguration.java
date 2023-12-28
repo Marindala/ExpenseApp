@@ -2,14 +2,14 @@ package main.config;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-//import java.sql.Statement;
+import java.sql.Statement;
 import java.sql.SQLException;
 
 public class JdbcConfiguration {
     private static final String DB_DRIVER = "org.h2.Driver";
-    private static final String DB_CONNECTION = "jdbc:h2:~/test";
+    private static final String DB_CONNECTION = "jdbc:h2:~/expense";
     private static final String DB_USER = "sa";
-    private static final String DB_PASSWORD = "";
+    private static final String DB_PASSWORD = "1234";
 
     public static Connection getConnection() {
         Connection connection = null;
@@ -18,8 +18,8 @@ public class JdbcConfiguration {
             Class.forName(DB_DRIVER);
             connection = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
             System.out.println("Conexión a la base de datos establecida con éxito.");
-            // Crear una declaración SQL
-            //Statement statement = connection.createStatement();
+             //Crear una declaración SQL
+            Statement statement = connection.createStatement();
             // Crear la tabla
             //String createTableQuery = "CREATE TABLE IF NOT EXISTS gastos (id INT PRIMARY KEY, nombre VARCHAR(50))";
             //statement.executeUpdate(createTableQuery);

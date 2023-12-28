@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d284b3c6-5df3-4106-972f-fa1fb54aec0e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AppExpense.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppExpense.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/config/JdbcConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/config/JdbcConfiguration.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,9 +24,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2a9SIz6qqezJ6Iqfr3K0sh6VkYB" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -37,7 +39,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Program Files (x86)/H2/bin/h2-2.2.224.jar",
+    "last_opened_file_path": "C:/Users/marin/Desktop/AppExpense",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
