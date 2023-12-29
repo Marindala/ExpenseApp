@@ -3,6 +3,7 @@ package main.config;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class JdbcConfiguration {
@@ -20,6 +21,8 @@ public class JdbcConfiguration {
             System.out.println("Conexión a la base de datos establecida con éxito.");
              //Crear una declaración SQL
             Statement statement = connection.createStatement();
+            //String query = "INSERT INTO empleados (id, nombre, salario) VALUES (?, ?, ?)";
+            //PreparedStatement preparedStatement = connection.prepareStatement(query);
             // Crear la tabla
             //String createTableQuery = "CREATE TABLE IF NOT EXISTS gastos (id INT PRIMARY KEY, nombre VARCHAR(50))";
             //statement.executeUpdate(createTableQuery);
