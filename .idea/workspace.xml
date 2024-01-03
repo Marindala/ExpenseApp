@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d284b3c6-5df3-4106-972f-fa1fb54aec0e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/dao/ExpenseDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/dao/impl/CategoryDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/dao/impl/ExpenseDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,6 +46,10 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="main.dao.impl" />
+      <recent name="main.dao" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\marin\Desktop\AppExpense\jar" />
     </key>
