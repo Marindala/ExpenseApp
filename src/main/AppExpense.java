@@ -5,16 +5,16 @@ import main.dao.CategoryDao;
 import main.dao.AccountManagerDao;
 import main.dao.OperationTypeDao;
 import main.dao.TransactionsDao;
-import dao.dto.CategoriesDto;
-import dao.dto.AccountManagerDto;
-import dao.dto.OperationTypeDto;
-import dao.dto.TransactionsDto;
-import dao.impl.CategoriesDaoImpl;
-import dao.impl.AccountManagerImpl;
-import dao.impl.OperationTypeImpl;
-import dao.impl.TransactionsDaoImpl;
-import exceptions.DAOException;
-import exceptions.InvalidExpenseException;
+import main.dao.dto.CategoryDto;
+import main.dao.dto.AccountManagerDto;
+import main.dao.dto.OperationTypeDto;
+import main.dao.dto.TransactionsDto;
+import main.dao.impl.CategoryDaoImpl;
+import main.dao.impl.AccountManagerImpl;
+import main.dao.impl.OperationTypeImpl;
+import main.dao.impl.TransactionsDaoImpl;
+import main.exceptions.DAOException;
+import main.exceptions.InvalidExpenseException;
 import interfaces.ExpenseAmountValidator;
 import interfaces.ExpenseAmountValidatorImpl;
 import interfaces.ControlPanel;
@@ -45,10 +45,10 @@ public class AppExpense {
                 transactionsDao = new TransactionsDaoImpl(connection);
                 transactionsDtos = transactionsDao.getAll();
 
-                categoriesDao = new CategoriesDaoImpl(connection);
+                categoryDao = new CategoryDaoImpl(connection);
                 accountManagerDao = new AccountManagerImpl(connection);
 
-                CategoriesDao categoriesDao = new CategoriesDaoImpl(connection);
+                CategoryDao categoriesDao = new CategoryDaoImpl(connection);
                 OperationTypeDao operationTypeDao = new OperationTypeImpl(connection);
 
                 accountManagerDtos = accountManagerDao.getAll();
