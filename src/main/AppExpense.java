@@ -1,38 +1,147 @@
 package main;
 
+import main.config.JdbcConfiguration;
+import main.dao.CategoryDao;
+import main.dao.AccountManagerDao;
+import main.dao.OperationTypeDao;
+import main.dao.TransactionsDao;
+import dao.dto.CategoriesDto;
+import dao.dto.AccountManagerDto;
+import dao.dto.OperationTypeDto;
+import dao.dto.TransactionsDto;
+import dao.impl.CategoriesDaoImpl;
+import dao.impl.AccountManagerImpl;
+import dao.impl.OperationTypeImpl;
+import dao.impl.TransactionsDaoImpl;
+import exceptions.DAOException;
+import exceptions.InvalidExpenseException;
+import interfaces.ExpenseAmountValidator;
+import interfaces.ExpenseAmountValidatorImpl;
+import interfaces.ControlPanel;
+import interfaces.ControlPanelImpl;
+
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.Statement;
+import java.util.List;
+import java.util.Scanner;
 
 public class AppExpense {
-    public static void main(String[] args) {
-         String DB_DRIVER = "org.h2.Driver";
-         String DB_CONNECTION = "jdbc:h2:~/expense";
-         String DB_USER = "sa";
-         String DB_PASSWORD = "1234";
-        try {
-            Class.forName(DB_DRIVER); // Carga explícitamente el controlador JDBC
-            // Establecer la conexión con la base de datos
-            Connection connection = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
+    static Scanner sc = new Scanner(System.in);
+    static List<AccountManagerDto> accountManagerDtos;
+    static List<CategoryDto> categoriesDtos;
+    static List<OperationTypeDto> operationTypeDtos;
+    static List<TransactionsDto> transactionsDtos;
+    static TransactionsDao transactionsDao;
+    static CategoryDao categoriesDao;
+    static AccountManagerDao accountManagerDao;
+}
 
-            // Crear una declaración SQL
-            Statement statement = connection.createStatement();
 
-            // Crear la tabla
-            String createTableQuery = "CREATE TABLE IF NOT EXISTS expense (id INT PRIMARY KEY, nombre VARCHAR(50))";
-            statement.executeUpdate(createTableQuery);
 
-            // Insertar registros
-            String insertQuery = "INSERT INTO expense VALUES (1, 'food'), (2, 'outfit')";
-            statement.executeUpdate(insertQuery);
+        public static void main(String[] args) {
+            try (Connection connection = JdbcConfiguration.getConnection()) {
+                Statement statement = connection.createStatement();
 
-            // Cerrar la conexión
-            statement.close();
-            connection.close();
+                transactionsDao = new TransactionsDaoImpl(connection);
+                transactionsDtos = transactionsDao.getAll();
 
-            System.out.println("Registros insertados con éxito en la tabla 'expense'.");
-        } catch (Exception e) {
-            e.printStackTrace();
+                categoriesDao = new CategoriesDaoImpl(connection);
+                accountManagerDao = new AccountManagerImpl(connection);
+
+                CategoriesDao categoriesDao = new CategoriesDaoImpl(connection);
+                OperationTypeDao operationTypeDao = new OperationTypeImpl(connection);
+
+                accountManagerDtos = accountManagerDao.getAll();
+                categoriesDtos = categoriesDao.getAll();
+                operationTypeDtos = operationTypeDao.getAll();
+
+                int option;
+
+                do {
+                    option = menu();
+                    switch (option) {
+                        case 0:
+                            break;
+                        case 1:
+                            newTransaction();
+                            break;
+                        case 2:
+                            newCategory();
+                            break;
+                        case 3:
+                            calculateExpenses(transactionsDtos, categoriesDtos);
+                            break;
+                        case 4:
+                            listTransactions(transactionsDtos);
+                            break;
+                        case 5:
+                            listCategories(categoriesDtos);
+                            break;
+                    }
+                } while (option != 0);
+
+                statement.close();
+                connection.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
+
+        public static int menu() {
+            int menuOption;
+            System.out.println("Menu");
+            System.out.println("1 - Enter New Transaction");
+            System.out.println("2 - Enter New Category");
+            System.out.println("3 - Calculate Expenses");
+            System.out.println("4 - List Transactions");
+            System.out.println("5 - List Categories");
+            System.out.println("0 - Exit");
+            menuOption = sc.nextInt();
+            sc.nextLine();
+
+            return menuOption;
+        }
+
+        public static void newTransaction() throws InvalidExpenseException, DAOException {
+            boolean flag = false;
+            double amount;
+
+            try {
+                TransactionsDto transactionsDto = new TransactionsDto();
+                ExpenseAmountValidator expenseAmountValidator = new ExpenseAmountValidatorImpl();
+
+                listAccountManagerDtoPlain(accountManagerDtos);
+                System.out.print("Enter the account: ");
+                int account = sc.nextInt();
+                sc.nextLine();
+
+                listCategoriesPlain(categoriesDtos);
+                System.out.print("Enter the category: ");
+                int category = sc.nextInt();
+                sc.nextLine();
+
+                System.out.print("Enter the date (dd-mm-yyyy): ");
+                String date = sc.nextLine();
+
+                while (true) {
+                    System.out.print("Enter the amount: ");
+                    amount = sc.nextDouble();
+                    if (expenseAmountValidator.validateAmount(amount)) {
+                        break;
+                    }
+                    sc.nextLine();
+                }
+
+                transactionsDto.setAccountManagerId(account);
+                transactionsDto.setCategoryId(category);
+                transactionsDto.setDate(date);
+                transactionsDto.setAmount(amount);
+                transactionsDao.insert(transactionsDto);
+                transactionsDtos = transactionsDao.getAll();
+                calculateExpenses(transactionsDtos, categoriesDtos);
+            } catch (DAOException e) {
+                System.out.println("Could not register the transaction: " + e.getMessage());
+            }
+
     }
 }
