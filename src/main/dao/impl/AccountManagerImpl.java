@@ -2,7 +2,7 @@ package main.dao.impl;
 
 import main.dao.AccountManagerDao;
 import main.dao.dto.AccountManagerDto;
-import exceptions.DAOException;
+import main.exceptions.DAOException;
 
 
 import java.sql.Connection;

@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d284b3c6-5df3-4106-972f-fa1fb54aec0e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/dao/AccountManagerDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/dao/impl/AccountManagerImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/exceptions/DAOException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dao/ExpenseDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dao/impl/ExpenseDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dao/impl/AccountManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/impl/AccountManagerImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +17,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -28,7 +26,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
