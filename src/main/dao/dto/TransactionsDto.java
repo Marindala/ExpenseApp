@@ -56,7 +56,7 @@ public class TransactionsDto {
 
     @Override
     public String toString() {
-        return "Transaction {" +
+        return "Transactions {" +
                 "accountManagerId='" + accountManagerId + '\'' +
                 ", categoryId='" + categoryId + '\'' +
                 ", date='" + date + '\'' +
