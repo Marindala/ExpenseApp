@@ -15,10 +15,10 @@ import main.dao.impl.OperationTypeImpl;
 import main.dao.impl.TransactionsDaoImpl;
 import main.exceptions.DAOException;
 import main.exceptions.InvalidExpenseException;
-import interfaces.ExpenseAmountValidator;
-import interfaces.ExpenseAmountValidatorImpl;
-import interfaces.ControlPanel;
-import interfaces.ControlPanelImpl;
+import main.interfaces.ExpenseAmountValidator;
+import main.interfaces.ExpenseAmountValidatorImpl;
+import main.interfaces.ControlPanel;
+import main.interfaces.ControlPanelImpl;
 
 import java.sql.Connection;
 import java.sql.Statement;
@@ -34,7 +34,7 @@ public class AppExpense {
     static TransactionsDao transactionsDao;
     static CategoryDao categoriesDao;
     static AccountManagerDao accountManagerDao;
-}
+
 
 
 
