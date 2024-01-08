@@ -16,5 +16,15 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$USER_HOME$/Downloads/jar_files_for_unit_testing_with_mockito" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$USER_HOME$/Downloads/jar_files_for_unit_testing_with_mockito" recursive="false" />
+      </library>
+    </orderEntry>
   </component>
 </module>

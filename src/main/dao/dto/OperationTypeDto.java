@@ -27,7 +27,7 @@ public class OperationTypeDto {
         return name;
     }
 
-    public void setName(String name) {
+    public static void setName(String name) {
         this.name = name;
     }
 
@@ -35,7 +35,7 @@ public class OperationTypeDto {
         return operation;
     }
 
-    public void setOperation(String operation) {
+    public static void setOperation(String operation) {
         this.operation = operation;
     }
 

@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d284b3c6-5df3-4106-972f-fa1fb54aec0e" name="Changes" comment="" />
+    <list default="true" id="d284b3c6-5df3-4106-972f-fa1fb54aec0e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/CREATE_TABLE_ACCOUNTMANAGER.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CREATE_TABLE_ACCOUNTTYPE.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CREATE_TABLE_CATEGORY.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CREATE_TABLE_OPERATIONTYPE.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CREATE_TABLE_TRANSACTIONS.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppExpense.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AppExpense.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/AppExpense.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AppExpense.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dao/dto/OperationTypeDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/dto/OperationTypeDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dao/impl/CategoryDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/impl/CategoryDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dao/impl/OperationTypeImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/impl/OperationTypeImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dao/impl/TransactionsDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/impl/TransactionsDaoImpl.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,7 +52,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/marin/Desktop/AppExpense",
+    "last_opened_file_path": "C:/Users/marin/Downloads/jar_files_for_unit_testing_with_mockito",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -52,6 +65,7 @@
       <recent name="main.dao" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\marin\Desktop\AppExpense" />
       <recent name="C:\Users\marin\Desktop\AppExpense\jar" />
     </key>
   </component>
