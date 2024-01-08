@@ -7,13 +7,8 @@
     <list default="true" id="d284b3c6-5df3-4106-972f-fa1fb54aec0e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/AppExpense.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AppExpense.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dao/impl/CategoryDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/impl/CategoryDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dao/impl/OperationTypeImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/impl/OperationTypeImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dao/impl/TransactionsDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/impl/TransactionsDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/interfaces/ControlPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/interfaces/ControlPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/interfaces/ControlPanelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/interfaces/ControlPanelImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/interfaces/ExpenseAmountValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/interfaces/ExpenseAmountValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/interfaces/ExpenseAmountValidatorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/interfaces/ExpenseAmountValidatorImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dao/dto/CategoryDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/dto/CategoryDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dao/dto/TransactionsDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/dto/TransactionsDto.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

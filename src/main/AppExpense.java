@@ -48,7 +48,7 @@ public class AppExpense {
             categoryDao = new CategoryDaoImpl(connection);
             accountManagerDao = new AccountManagerImpl(connection);
 
-            CategoryDao categoriesDao = new CategoryDaoImpl(connection);
+            CategoryDao categoryDao = new CategoryDaoImpl(connection);
             OperationTypeDao operationTypeDao = new OperationTypeImpl(connection);
 
             accountManagerDto = accountManagerDao.getAll();
@@ -112,12 +112,12 @@ public class AppExpense {
             TransactionsDto transactionsDto = new TransactionsDto();
             ExpenseAmountValidator expenseAmountValidator = new ExpenseAmountValidatorImpl();
 
-            listAccountManagerDtoPlain(accountManagerDtos);
+            listAccountManagerDtoPlain(accountManagerDto);
             System.out.print("Enter the account: ");
             int account = sc.nextInt();
             sc.nextLine();
 
-            listCategoriesPlain(categoryDto);
+            listCategoryPlain(categoryDto);
             System.out.print("Enter the category: ");
             int category = sc.nextInt();
             sc.nextLine();
@@ -139,11 +139,91 @@ public class AppExpense {
             transactionsDto.setDate(date);
             transactionsDto.setAmount(amount);
             transactionsDao.insert(transactionsDto);
-            transactionsDto = transactionsDao.getAll();
-            calculateExpenses(transactionsDto, categoryDto);
+            transactionsDto = (TransactionsDto) transactionsDao.getAll();
+            calculateExpenses((List<TransactionsDto>) transactionsDto, categoryDto);
         } catch (DAOException e) {
             System.out.println("Could not register the transaction: " + e.getMessage());
         }
 
     }
+
+    public static void newCategory() throws InvalidExpenseException, DAOException {
+        try {
+            CategoryDto categoryDto = new CategoryDto();
+            ExpenseAmountValidator expenseAmountValidator = new ExpenseAmountValidatorImpl();
+
+            System.out.print("Enter the category name: ");
+            String name = sc.nextLine();
+
+            listOperationTypePlain(operationTypeDto);
+            System.out.print("Enter the operation type: ");
+            int operation = sc.nextInt();
+            sc.nextLine();
+
+            categoryDto.setName(name);
+            categoryDto.setOperationId(operation);
+            categoryDao.insert(categoryDto);
+            categoryDto = (CategoryDto) categoryDao.getAll();
+        } catch (Exception e) {
+            System.out.println("Could not register the category: " + e.getMessage());
+        }
+    }
+
+    public static void calculateExpenses(List<TransactionsDto> transactionsDto, List<CategoryDto> categoryDto) {
+        ControlPanel cpanel = new ControlPanelImpl();
+        System.out.println("Total Expenses: " + cpanel.calculateTotalExpenses(transactionsDto, categoryDto));
+    }
+
+
+    public static void listTransactions(List<TransactionsDto> transactionsDtos) throws DAOException {
+        if (transactionsDtos.size() > 0) {
+            for (TransactionsDto t : transactionsDtos) {
+                System.out.println("Account: " + t.getAccountManagerId() + " - " +
+                        accountManagerDao.getById(t.getAccountManagerId()).getDescription());
+                System.out.println("Category: " + t.getCategoryId() + " - " +
+                        categoryDao.getById(t.getCategoryId()).getName());
+                System.out.println("Date: " + t.getDate());
+                System.out.println("Amount: " + t.getAmount());
+                System.out.println("-----------------");
+            }
+        } else {
+            System.out.println("No transactions available");
+        }
+    }
+
+    public static void listCategory(List<CategoryDto> categoriesDtos) throws DAOException {
+        System.out.println("Category: ");
+        for (CategoryDto p : categoriesDtos) {
+            System.out.println("Name: " + p.getName());
+            System.out.println("Operation Type: " + p.getOperationId());
+            System.out.println("-----------------");
+        }
+        System.out.println("");
+    }
+
+    public static void listCategoryPlain(List<CategoryDto> categoryDto) {
+        System.out.print("Category: ");
+        for (CategoryDto p : categoryDto) {
+            System.out.print(p.getId() + " - " + p.getName() + " / ");
+        }
+        System.out.println("");
+    }
+
+    public static void listAccountManagerDtoPlain(List<AccountManagerDto> accountManagerDtos) {
+        System.out.print("Accounts: ");
+        for (AccountManagerDto c : accountManagerDtos) {
+            System.out.print(c.getId() + " - " + c.getDescription() + " / ");
+        }
+        System.out.println("");
+    }
+
+    public static void listOperationTypePlain(List<OperationTypeDto> operationTypeDtos) {
+        System.out.print("Operations: ");
+        for (OperationTypeDto t : operationTypeDtos) {
+            System.out.print(t.getId() + " - " + t.getName() + " / ");
+        }
+        System.out.println("");
+    }
+
+
 }

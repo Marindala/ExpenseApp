@@ -10,7 +10,6 @@ public class TransactionsDto {
 
     public TransactionsDto() {
     }
-
     public TransactionsDto(int accountManagerId, int categoryId, String date, Double amount) {
         this.accountManagerId = accountManagerId;
         this.categoryId = categoryId;
@@ -46,9 +45,9 @@ public class TransactionsDto {
         return amount;
     }
 
-    public Double getNetAmount() {
-        return amount;
-    }
+    //public Double getNetAmount() {
+        //return amount;
+   // }
 
     public void setAmount(Double amount) {
         this.amount = amount;
@@ -56,7 +55,7 @@ public class TransactionsDto {
 
     @Override
     public String toString() {
-        return "Transactions {" +
+        return "Transaction {" +
                 "accountManagerId='" + accountManagerId + '\'' +
                 ", categoryId='" + categoryId + '\'' +
                 ", date='" + date + '\'' +
