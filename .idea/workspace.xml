@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d284b3c6-5df3-4106-972f-fa1fb54aec0e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppExpense.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AppExpense.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dao/impl/TransactionsDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/impl/TransactionsDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/main/dao/impl/CategoryDaoImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/main/dao/impl/CategoryDaoImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +19,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -41,6 +43,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/marin/Downloads/jar_files_for_unit_testing_with_mockito/opentest4j-1.0.0.jar",
     "project.structure.last.edited": "Modules",
@@ -58,6 +62,34 @@
       <recent name="C:\Users\marin\Desktop\AppExpense" />
       <recent name="C:\Users\marin\Desktop\AppExpense\jar" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="main.dao.impl" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="CategoryDaoImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AppExpense" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.dao.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="main.dao.impl" />
+      <option name="MAIN_CLASS_NAME" value="main.dao.impl.CategoryDaoImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.CategoryDaoImplTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

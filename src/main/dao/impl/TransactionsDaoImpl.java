@@ -21,28 +21,27 @@ public class TransactionsDaoImpl {
     private static final String GET_TRANSACTIONS_BY_ID = "SELECT * FROM transactions WHERE id = ?";
     private final Connection connection;
 
-    public TransaccionesDaoImpl(Connection connection) {
+    public TransactionsDaoImpl(Connection connection) {
         this.connection = connection;
     }
 
     @Override
-    public TransaccionesDto getById(int id) throws DAOException {
+    public TransactionsDto getById(int id) throws DAOException {
         return null;
     }
 
     @Override
-    public List<TransaccionesDto> getAll() throws DAOException {
-        try (PreparedStatement statement = connection.prepareStatement(GET_ALL_TRANSACCIONES)) {
+    public List<TransactionsDto> getAll() throws DAOException {
+        try (PreparedStatement statement = connection.prepareStatement(GET_ALL_TRANSACTIONS)) {
             ResultSet resultSet = statement.executeQuery();
-            List<TransaccionesDto> transaccionesDtos = new ArrayList<>();
-            // Iteramos el ResultSet para agregar el gasto a la lista
-            // y mientras agregamos, realizamo el mapeo de cada item
+            List<TransactionsDto> transaccionesDtos = new ArrayList<>();
+
             while (resultSet.next()) {
-                transaccionesDtos.add(mapDtoTotransaccionesDto(resultSet));
+                transactionsDtos.add(mapDtoTotransactionDto(resultSet));
             }
             return transaccionesDtos;
         } catch (SQLException e) {
-            throw new DAOException("Error al obtener la lista de Transacciones", e);
+            throw new DAOException("Error getting list of Transactions", e);
         }
     }
 
