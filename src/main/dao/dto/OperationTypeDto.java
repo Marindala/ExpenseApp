@@ -1,6 +1,5 @@
 package main.dao.dto;
 
-
 public class OperationTypeDto {
     private int id;
     private String name;
@@ -27,7 +26,7 @@ public class OperationTypeDto {
         return name;
     }
 
-    public static void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -35,7 +34,7 @@ public class OperationTypeDto {
         return operation;
     }
 
-    public static void setOperation(String operation) {
+    public void setOperation(String operation) {
         this.operation = operation;
     }
 

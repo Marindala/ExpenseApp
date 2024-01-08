@@ -42,6 +42,6 @@ public class OperationTypeImpl implements OperationTypeDao {
         OperationTypeDto.setId(resultSet.getInt("id"));
         OperationTypeDto.setName(resultSet.getString("name"));
         OperationTypeDto.setOperation(resultSet.getString("operation"));
-        return OperationTypeDto;
+        return operationTypeDto;
     }
 }
