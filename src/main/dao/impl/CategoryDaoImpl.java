@@ -49,7 +49,7 @@ public class CategoryDaoImpl implements CategoryDao {
                 return new Category(
                         resultSet.getInt("id"),
                         resultSet.getString("name"),
-                        resultSet.getInt("tipoOperacionId")
+                        resultSet.getInt("operationTypeId")
                 );
             }
             return null;

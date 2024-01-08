@@ -14,10 +14,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TransactionsDaoImpl {
+public class TransactionsDaoImpl implements TransactionsDao {
     private static final String GET_ALL_TRANSACTIONS = "SELECT * FROM transactions";
 
-    private static final String INSERT_INTO_TRANSACTIONS = "INSERT INTO transactions (id, gestorDeCuentaId, categoriaId, fecha, monto) VALUES (25, ?, ?, ?, ?)";
+    private static final String INSERT_INTO_TRANSACTIONS = "INSERT INTO transactions (id, accountManagerId, categoryId, date, amount) VALUES (25, ?, ?, ?, ?)";
     private static final String GET_TRANSACTIONS_BY_ID = "SELECT * FROM transactions WHERE id = ?";
     private final Connection connection;
 
@@ -34,41 +34,41 @@ public class TransactionsDaoImpl {
     public List<TransactionsDto> getAll() throws DAOException {
         try (PreparedStatement statement = connection.prepareStatement(GET_ALL_TRANSACTIONS)) {
             ResultSet resultSet = statement.executeQuery();
-            List<TransactionsDto> transaccionesDtos = new ArrayList<>();
+            List<TransactionsDto> transactionsDto = new ArrayList<>();
 
             while (resultSet.next()) {
-                transactionsDtos.add(mapDtoTotransactionDto(resultSet));
+                transactionsDto.add(mapDtoTotransactionsDto(resultSet));
             }
-            return transaccionesDtos;
+            return transactionsDto;
         } catch (SQLException e) {
             throw new DAOException("Error getting list of Transactions", e);
         }
     }
 
     @Override
-    public void insert(TransaccionesDto transaccionesDto) throws DAOException {
-        try (PreparedStatement statement = connection.prepareStatement(INSERT_INTO_TRANSACCIONES)) {
-            // Mapeo de dto a entidad
-            Transacciones transacciones = mapDtoToTransacciones(transaccionesDto);
+    public void insert(TransactionsDto transactionsDto) throws DAOException {
+        try (PreparedStatement statement = connection.prepareStatement(INSERT_INTO_TRANSACTIONS)) {
 
-            statement.setLong(1, transacciones.getGestorDeCuentaId());
-            statement.setLong(2, transacciones.getCategoriaId());
-            statement.setString(3, transacciones.getFecha());
-            statement.setDouble(4, transacciones.getMonto());
+            //Transactions transactions = mapDtoToTransactions(transactionsDto);
+            Transactions transactions = mapDtoToTransactions(transactionsDto);
+
+            statement.setLong(1, transactions.getAccountManagerId());
+            statement.setLong(2, transactions.getCategoryId());
+            statement.setString(3, transactions.getDate());
+            statement.setDouble(4, transactions.getAmount());
             int affectedRows = statement.executeUpdate();
-            // Validamos si el resultado de la ejecución del statement no devuelve filas afectadas,
-            // entonces hubo un error al insertar en base de datos
+
             if (affectedRows == 0) {
-                throw new DAOException("Error al insertar la Transacción, ninguna fila fue afectada.");
+                throw new DAOException("Error inserting the Transaction");
             }
         } catch (DAOException | SQLException e) {
             assert e instanceof SQLException;
-            throw new DAOException("Error al insertar la Transacción", (SQLException) e);
+            throw new DAOException("Error inserting Transaction", (SQLException) e);
         }
     }
 
     @Override
-    public void update(TransaccionesDto transaccionesDto) throws DAOException {
+    public void update(TransactionsDto transactionsDto) throws DAOException {
 
     }
 
@@ -77,22 +77,22 @@ public class TransactionsDaoImpl {
 
     }
 
-    private Transacciones mapDtoToTransacciones(TransaccionesDto transaccionesDto) {
-        Transacciones transacciones = new Transacciones();
-        transacciones.setGestorDeCuentaId(transaccionesDto.getGestorDeCuentaId());
-        transacciones.setCategoriaId(transaccionesDto.getCategoriaId());
-        transacciones.setFecha(transaccionesDto.getFecha());
-        transacciones.setMonto(transaccionesDto.getMonto());
-        return transacciones;
+    private Transactions mapDtoToTransactions(TransactionsDto transactionsDto) {
+        Transactions transactions = new Transactions();
+        transactions.setAccountManagerId(transactionsDto.getAccountManagerId());
+        transactions.setCategoryId(transactionsDto.getCategoryId());
+        transactions.setDate(transactionsDto.getDate());
+        transactions.setAmount(transactionsDto.getAmount());
+        return transactions;
     }
 
-    private TransaccionesDto mapDtoTotransaccionesDto(ResultSet resultSet) throws SQLException {
-        TransaccionesDto transaccionesDto = new TransaccionesDto();
-        transaccionesDto.setGestorDeCuentaId(resultSet.getInt("gestorDeCuentaId"));
-        transaccionesDto.setCategoriaId(resultSet.getInt("categoriaId"));
+    private TransactionsDto mapDtoTotransactionsDto(ResultSet resultSet) throws SQLException {
+        TransactionsDto transactionsDto = new TransactionsDto();
+        transactionsDto.setAccountManagerId(resultSet.getInt("accounManagerId"));
+        transactionsDto.setCategoryId(resultSet.getInt("categoryId"));
         //transaccionesDto.setFecha(String.valueOf(resultSet.getDate("fecha")));
-        transaccionesDto.setFecha(resultSet.getString("fecha"));
-        transaccionesDto.setMonto(resultSet.getDouble("monto"));
-        return transaccionesDto;
+        transactionsDto.setDate(resultSet.getString("date"));
+        transactionsDto.setAmount(resultSet.getDouble("amount"));
+        return transactionsDto;
     }
 }

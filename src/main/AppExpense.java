@@ -27,12 +27,12 @@ import java.util.Scanner;
 
 public class AppExpense {
     static Scanner sc = new Scanner(System.in);
-    static List<AccountManagerDto> accountManagerDtos;
-    static List<CategoryDto> categoriesDtos;
-    static List<OperationTypeDto> operationTypeDtos;
-    static List<TransactionsDto> transactionsDtos;
+    static List<AccountManagerDto> accountManagerDto;
+    static List<CategoryDto> categoryDto;
+    static List<OperationTypeDto> operationTypeDto;
+    static List<TransactionsDto> transactionsDto;
     static TransactionsDao transactionsDao;
-    static CategoryDao categoriesDao;
+    static CategoryDao categoryDao;
     static AccountManagerDao accountManagerDao;
 
 
@@ -43,7 +43,7 @@ public class AppExpense {
             Statement statement = connection.createStatement();
 
             transactionsDao = new TransactionsDaoImpl(connection);
-            transactionsDtos = transactionsDao.getAll();
+            transactionsDto = transactionsDao.getAll();
 
             categoryDao = new CategoryDaoImpl(connection);
             accountManagerDao = new AccountManagerImpl(connection);
@@ -51,9 +51,9 @@ public class AppExpense {
             CategoryDao categoriesDao = new CategoryDaoImpl(connection);
             OperationTypeDao operationTypeDao = new OperationTypeImpl(connection);
 
-            accountManagerDtos = accountManagerDao.getAll();
-            categoriesDtos = categoriesDao.getAll();
-            operationTypeDtos = operationTypeDao.getAll();
+            accountManagerDto = accountManagerDao.getAll();
+            categoryDto = categoryDao.getAll();
+            operationTypeDto = operationTypeDao.getAll();
 
             int option;
 
@@ -69,13 +69,13 @@ public class AppExpense {
                         newCategory();
                         break;
                     case 3:
-                        calculateExpenses(transactionsDtos, categoriesDtos);
+                        calculateExpenses(transactionsDto, categoryDto);
                         break;
                     case 4:
-                        listTransactions(transactionsDtos);
+                        listTransactions(transactionsDto);
                         break;
                     case 5:
-                        listCategories(categoriesDtos);
+                        listCategory(categoryDto);
                         break;
                 }
             } while (option != 0);
@@ -86,6 +86,8 @@ public class AppExpense {
             e.printStackTrace();
         }
     }
+
+
 
     public static int menu() {
         int menuOption;
@@ -115,7 +117,7 @@ public class AppExpense {
             int account = sc.nextInt();
             sc.nextLine();
 
-            listCategoriesPlain(categoriesDtos);
+            listCategoriesPlain(categoryDto);
             System.out.print("Enter the category: ");
             int category = sc.nextInt();
             sc.nextLine();
@@ -137,8 +139,8 @@ public class AppExpense {
             transactionsDto.setDate(date);
             transactionsDto.setAmount(amount);
             transactionsDao.insert(transactionsDto);
-            transactionsDtos = transactionsDao.getAll();
-            calculateExpenses(transactionsDtos, categoriesDtos);
+            transactionsDto = transactionsDao.getAll();
+            calculateExpenses(transactionsDto, categoryDto);
         } catch (DAOException e) {
             System.out.println("Could not register the transaction: " + e.getMessage());
         }

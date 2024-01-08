@@ -39,9 +39,9 @@ public class OperationTypeImpl implements OperationTypeDao {
 
     private OperationTypeDto mapDtoToOperationTypeDto(ResultSet resultSet) throws SQLException {
         OperationTypeDto operationTypeDto = new OperationTypeDto();
-        OperationTypeDto.setId(resultSet.getInt("id"));
-        OperationTypeDto.setName(resultSet.getString("name"));
-        OperationTypeDto.setOperation(resultSet.getString("operation"));
+        operationTypeDto.setId(resultSet.getInt("id"));
+        operationTypeDto.setName(resultSet.getString("name"));
+        operationTypeDto.setOperation(resultSet.getString("operation"));
         return operationTypeDto;
     }
 }

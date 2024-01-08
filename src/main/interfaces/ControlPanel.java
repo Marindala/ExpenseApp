@@ -7,5 +7,5 @@ import java.util.List;
 
 
 public interface ControlPanel {
-    double calculateTotalExpenses(List<TransactionsDto> transactionsDtos, List<CategoryDto> categoriesDtos);
+    double calculateTotalExpenses(List<TransactionsDto> transactionsDto, List<CategoryDto> categoryDto);
 }
